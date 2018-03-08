@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 public class AulaIII_Controle {
 
 	public static void main(String[] args) {
 
-		Scanner input = new Scanner(System.in);
+		
+		Random random = new Random();
 
 		// // Atividade 1
 		//
@@ -54,9 +56,9 @@ public class AulaIII_Controle {
 		// System.out.print("Alunos reprovados: " + reprovados);
 		// System.out.print("Média da turma: " + media);
 		// System.out.println("");
-
-		// Atividade 3
-
+		//
+		//// Atividade 3
+		//
 		// int n = input.nextInt();
 		// int divide = 0;
 		// String verificador = null;
@@ -74,22 +76,48 @@ public class AulaIII_Controle {
 		//
 		//
 		// }
-		// }
+		// }//
+//		// Atividade 4
+
 		// System.out.println(verificador);
+		//
+		// // Atividade 4
 
-		// Atividade 4
+		// ArrayList<Double> notas = new ArrayList<Double>();
+		// ArrayList<Double> freq= new ArrayList<Double>();
+		// int numFaltas = 0;
+		// int numPresenca = 18 - numFaltas;
+		// double n1, n2;
+		//
+		// for (int i = 0; i < notas.size(); i++) {
+		// notas.add((n1 + n2) / 2);
+		// freq.add((numPresenca/18)*100);
+		//
+		// }
 
-//		ArrayList<Double> notas = new ArrayList<Double>();
-//		ArrayList<Double> freq= new ArrayList<Double>();
-//		int numFaltas = 0;
-//		int numPresenca = 18 - numFaltas;
-//		double n1, n2;
-//
-//		for (int i = 0; i < notas.size(); i++) {
-//			notas.add((n1 + n2) / 2);
-//			freq.add((numPresenca/18)*100);
-//
-//		}
-
+		int[] v5 = new int[5];
+		int[] v10 = new int[10];
+		int[][] v4x3 = new int[4][3];
+		
+		System.out.print("Vetor 1: ");
+		for (int i = 0; i < v5.length; i++) {
+			v5[i] = random.nextInt(10);
+			System.out.print(v5[i] + ",");
+		}
+		System.out.println("");
+		System.out.print("Vetor 2: ");
+		for (int i = 0; i < v10.length; i++) {
+			v10[i] = random.nextInt(10);
+			System.out.print(v10[i] + ",");
+		}
+		System.out.println("");
+		System.out.print("Vetor 3: ");
+		for (int i = 0; i < v4x3.length; i++) {
+			System.out.print(v4x3[1][1]);
+			for (int j = 0; j < v4x3[0].length; j++) {
+				v4x3[i][j] = random.nextInt(10);
+				System.out.print(v4x3[1][1]);
+			}
+		}
 	}
 }
