@@ -1,4 +1,3 @@
-
 public class Imovel {
 	
 	private String endereco;

@@ -1,4 +1,3 @@
-
 public class Novo extends Imovel{
 	
 	private int adicional;

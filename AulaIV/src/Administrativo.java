@@ -1,7 +1,24 @@
+public class Administrativo extends Assistente {
 
-public class Administrativo extends Assistente{
-	
 	private String turno;
-	private int adicionalNoturno;	
+	private int adicionalNoturno;
+
+	public String getTurno() {
+		return turno;
+
+	}
+
+	public void setTurno() {
+		this.turno = turno;
+	}
+
+	public int getAdicionaNoturno() {
+		return adicionalNoturno;
+
+	}
+
+	public void setAdicionaNoturno() {
+		this.adicionalNoturno = adicionalNoturno;
+	}
 
 }
