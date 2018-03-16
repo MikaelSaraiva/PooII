@@ -1,3 +1,5 @@
+package Aula_II;
+
 import java.util.Scanner;
 
 public class AulaII_Main {

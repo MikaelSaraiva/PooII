@@ -1,15 +1,33 @@
 package Aula_V;
+
 import java.util.ArrayList;
 
 public class Biblioteca {
-	
-	ArrayList<Emprestimo> emprestimos;
-	String name;
-	
-	void emprestar(int codigo, String pessoa, int cpf) {
+
+	private ArrayList<Emprestimo> emprestimos;
+	private String name;
+
+	public void emprestar(int codigo, String pessoa, int cpf) {
 	}
-	
-	void devolver(int codigo) {
-		
+
+	public void receber(int codigo) {
+
 	}
+
+	public ArrayList<Emprestimo> getEmprestimos() {
+		return emprestimos;
+	}
+
+	public void setEmprestimos(ArrayList<Emprestimo> emprestimos) {
+		this.emprestimos = emprestimos;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 }
