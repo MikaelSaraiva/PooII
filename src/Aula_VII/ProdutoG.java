@@ -1,34 +1,33 @@
 package Aula_VII;
 
-public class ProdutoG<T,U> {
-	
+public class ProdutoG<T> {
 	
 	private T codigo;
 	private String descricao;
-	private U preco;
+	private double preco;
+	private Codigo codigoProduto;
 	
-	
-	public ProdutoG(T codigo, String descricao, U preco){
-		this.codigo = codigo;
-		this.descricao = descricao;
-		this.preco = preco;
+	public ProdutoG(T cod, String descr, double pr){
+		codigo = cod;
+		descricao = descr;
+		preco = pr;
 	}
-	
-	public T getCodigo(){
+
+	public T getCodigo() {
 		return codigo;
 	}
-	
-	public String getDescricao(){
+
+	public String getDescricao() {
 		return descricao;
-		
 	}
-	
-	public U getPreco(){
+
+	public double getPreco() {
 		return preco;
 	}
-	
+
 	@Override
 	public String toString(){
-		return "Produto {" + "codigo=" + codigo + ", descrição=" + descricao + ", preço=" + preco + "}";
+		return "ProdutoG{" + "codigo=" + codigo + ", descrição=" + descricao + ", preço=" + preco +"}";
+	
 	}
 }
