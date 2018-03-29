@@ -1,5 +1,52 @@
 package Exercicio_1;
 
-public class Curso_longo extends Aluno{
+public class Curso_longo extends Aluno {
+
+	private double nota1;
+	private double nota2;
+	private double nota3;
+
+	public Curso_longo(String nome, int matricula, int anoEntrada) {
+		super(nome, matricula, anoEntrada);
+	}
+
+	public double getNota1() {
+		return nota1;
+	}
+
+	public double getNota2() {
+		return nota2;
+	}
+
+	public double getNota3() {
+		return nota3;
+	}
+
+	public void setNota1(double nota1) {
+		this.nota1 = nota1;
+	}
+
+	public void setNota2(double nota2) {
+		this.nota2 = nota2;
+	}
+
+	public void setNota3(double nota3) {
+		this.nota3 = nota3;
+	}
+
+	public double media() {
+		return (nota1 * nota2 * nota3) / 3;
+	}
+
+	public String resultado() {
+		String resultado = null;
+
+		if (media() > 9.01 && media() < 10 || media() > 7.01 && media() < 9)
+			resultado = "Aprovado";
+		else
+			resultado = "Reprovado";
+
+		return resultado;
+	}
 
 }

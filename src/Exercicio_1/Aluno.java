@@ -1,9 +1,16 @@
 package Exercicio_1;
 
-public class Aluno {
+public abstract class Aluno {
 
-	private int matricula;
 	private String nome;
+	private int matricula;
+	private int anoEntrada;
+
+	public Aluno(String nome, int matricula, int anoEntrada) {
+		this.nome = nome;
+		this.matricula = matricula;
+		this.anoEntrada = anoEntrada;
+	}
 
 	public int getMatricula() {
 		return matricula;
@@ -11,6 +18,10 @@ public class Aluno {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public int getAnoEntrada() {
+		return anoEntrada;
 	}
 
 	public void setMatricula(int matricula) {
@@ -22,4 +33,11 @@ public class Aluno {
 
 	}
 
+	public void setAnoEntrada(int anoEntrada) {
+		this.anoEntrada = anoEntrada;
+	}
+
+	public abstract double media();
+
+	public abstract String resultado();
 }
