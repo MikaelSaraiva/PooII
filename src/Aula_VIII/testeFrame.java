@@ -73,7 +73,7 @@ public class testeFrame extends JFrame{
 		plainJButton.addActionListener(handlerB);
 		fancyJButton.addActionListener(handlerB);
 
-		
+	
 	}
 	private class TextFieldHandler implements ActionListener{
 		
