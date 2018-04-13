@@ -11,5 +11,6 @@ public class TesteGUI2 {
 
 		TesteFrame2 testeFrame = new TesteFrame2(); 
 		testeFrame.setVisible(true);
+		testeFrame.setSize(400, 400);
 	}
 }
