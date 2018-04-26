@@ -9,7 +9,7 @@ public class Clicker {
 	private int level;
 
 	public void acumular() {
-		acumulador++;
+		acumulador ++;
 	}
 
 	public int getAcumulador() {
