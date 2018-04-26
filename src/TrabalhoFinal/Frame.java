@@ -3,6 +3,7 @@ package TrabalhoFinal;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -56,11 +57,34 @@ public class Frame extends JFrame {
 		});
 		
 		Upgrade[] upgrades = {
-				new Upgrade(clicker, 1, 1000),
-				new Upgrade(clicker, 2, 5000),
-				new Upgrade(clicker, 4, 2500),
+				new Upgrade(clicker, 1, 3000),
+				new Upgrade(clicker, 2, 2900),
+				new Upgrade(clicker, 3, 2800),
+				new Upgrade(clicker, 5, 2700),
+				new Upgrade(clicker, 8, 2600),
+				new Upgrade(clicker, 13, 2500),
+				new Upgrade(clicker, 4, 2400),
+				new Upgrade(clicker, 4, 2300),
+				new Upgrade(clicker, 4, 2200),
+				new Upgrade(clicker, 4, 2100),
+				new Upgrade(clicker, 4, 2000),
+				new Upgrade(clicker, 4, 1900),
+				new Upgrade(clicker, 4, 1800),
+				new Upgrade(clicker, 4, 1700),
+				new Upgrade(clicker, 4, 1600),
+				new Upgrade(clicker, 4, 1500),
+				new Upgrade(clicker, 4, 1400),
+				new Upgrade(clicker, 4, 1300),
+				new Upgrade(clicker, 4, 1200),
+				new Upgrade(clicker, 4, 1100),
+				new Upgrade(clicker, 4, 1000),
+				new Upgrade(clicker, 4, 900),
+				new Upgrade(clicker, 4, 800),
+				new Upgrade(clicker, 4, 700),
+				new Upgrade(clicker, 4, 600),
+				new Upgrade(clicker, 4, 500),
 		};
-		
+				
 		JButton[] buttons = new JButton[upgrades.length];
 		for (int i = 0; i < upgrades.length; i++) {
 			Upgrade upgrade = upgrades[i];
@@ -93,9 +117,45 @@ public class Frame extends JFrame {
 						this.i++;
 					}
 				}
+				else
+					JOptionPane.showMessageDialog(null, "Você não possui processinhos suficiente");
 			});
 		}
 		buttons[0].setVisible(true);
+	}
+	
+	private class fibonacci {
+		
+		ArrayList<Integer> fibonacci;
+		
+		
+		public int fib(int n) {
+			int numb = 0;
+			int[] numbAux = new int[n];
+			
+			numbAux[1] = 1;
+			numbAux[2] = 1;
+
+			
+			for (int i = 4; i < n; i++) {
+			}
+			
+			return numb;
+		}
+		
+		public void gerarFibonacci() {
+			
+			ArrayList<Integer> numero = new ArrayList<>();
+			
+			for (int i = 0; i < numero.size(); i++) {
+				fib.add(i);
+			}
+			
+		}
+		
+		public ArrayList<Integer> getFibonacci(){
+			return fibonacci;
+		}
 	}
 
 }

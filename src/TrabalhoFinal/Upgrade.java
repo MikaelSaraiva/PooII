@@ -7,9 +7,8 @@ public class Upgrade {
 
 	private int custo = 1;
 	private int periodo = 1000;
-	
 	private Clicker clicker;
-	private String telaAcumulador;
+	
 
 	public Upgrade(Clicker clicker, int custo) {
 		this.clicker = clicker;
