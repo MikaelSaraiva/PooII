@@ -8,8 +8,8 @@ public class Clicker {
 	private int acumulador;
 	private int level;
 
-	public void acumular() {
-		acumulador ++;
+	public void acumular(int multiplicador) {
+		acumulador += 1*multiplicador ;
 	}
 
 	public int getAcumulador() {

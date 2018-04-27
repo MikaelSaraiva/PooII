@@ -1,14 +1,16 @@
 package TrabalhoFinal;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Upgrade {
 
 	private int custo = 1;
 	private int periodo = 1000;
+	private int multiplicador = 1;
 	private Clicker clicker;
 	
+	public Upgrade(Clicker clicker) {
+		this.clicker = clicker;
+	}
 
 	public Upgrade(Clicker clicker, int custo) {
 		this.clicker = clicker;
@@ -30,5 +32,13 @@ public class Upgrade {
 	
 	public int getPeriodo() {
 		return periodo;
+	}
+	
+	public void upgradeClick() {
+		multiplicador++;
+	}
+	
+	public int getMulti() {
+		return multiplicador;
 	}
 }
