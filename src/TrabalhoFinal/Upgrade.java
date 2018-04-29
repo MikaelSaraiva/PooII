@@ -8,9 +8,6 @@ public class Upgrade {
 	private int multiplicador = 1;
 	private Clicker clicker;
 	
-	public Upgrade(Clicker clicker) {
-		this.clicker = clicker;
-	}
 
 	public Upgrade(Clicker clicker, int custo) {
 		this.clicker = clicker;
@@ -20,6 +17,7 @@ public class Upgrade {
 	public Upgrade(Clicker clicker, int custo, int periodo) {
 		this(clicker, custo);
 		this.periodo = periodo;
+		this.multiplicador = multiplicador;
 	}
 
 	public void custo() {

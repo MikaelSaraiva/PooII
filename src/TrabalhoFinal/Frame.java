@@ -3,7 +3,6 @@ package TrabalhoFinal;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -12,35 +11,39 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import Aula_VIII.testeFrame;
-
 public class Frame extends JFrame {
 
 	private Clicker clicker;
 	private JLabel telaAcumulador;
 	private JLabel labelLevel;
-	private JButton botaoAcumulador;
-	private final int QTDUPGRADE = 500;
 	private JLabel telaUpgrade;
+	private JLabel upgradeClick;
+	private JButton botaoAcumulador;
+	private JButton multCompras;
+	private fibonacci fibo;
+	private Upgrade[] upgrades;
+	private Upgrade upgrade;
+	private final int QTDUPGRADE = 500;
+	private int multiplicador = 1;
+	private int j = 0;
 	private int i = 0;
 	private int cont = 0;
 	private final int CUSTO = 1;
 	private final int TEMPO = 1;
-	private fibonacci fibo;
-	private Upgrade[] upgrades;
-	private Upgrade upgrade;
 
 	public Frame() {
 		super("Joguinho muito louco");
 
 		fibo = new fibonacci();
 		clicker = new Clicker();
-		upgrade = new Upgrade(clicker, CUSTO);
 
 		setLayout(new FlowLayout());
 		telaAcumulador = new JLabel("Processinhos: " + clicker.getAcumulador());
 		add(telaAcumulador);
 
+		upgradeClick = new JLabel("Upgrade Click: " + (multiplicador - 1));
+		add(upgradeClick);
+		
 		labelLevel = new JLabel("Level: " + clicker.getLevel());
 		add(labelLevel);
 
@@ -55,7 +58,7 @@ public class Frame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 
-				clicker.acumular(upgrade.getMulti());
+				clicker.acumular(multiplicador);
 				telaAcumulador.setText("Processos: " + clicker.getAcumulador());
 
 			}
@@ -64,7 +67,7 @@ public class Frame extends JFrame {
 		for (int j = 0; j < QTDUPGRADE; j++) {
 			upgrades[j] = new Upgrade(clicker, fibo.fib(j), 5000 - (j * 2));
 		}
-		
+
 		JButton[] buttons = new JButton[QTDUPGRADE];
 		for (int i = 0; i < QTDUPGRADE; i++) {
 			Upgrade upgrade = upgrades[i];
@@ -106,12 +109,13 @@ public class Frame extends JFrame {
 			});
 		}
 		buttons[0].setVisible(true);
-		
+
 		JButton[] buttonsClick = new JButton[QTDUPGRADE];
-		for (int i = 0; i < QTDUPGRADE; i++) {
-			Upgrade upgrade = upgrades[i];
-			buttonsClick[i] = new JButton(String.format("Upgrade do Click %d (%d processos)", i + 1, upgrade.getCusto()));
-			JButton btnUpgrade = buttonsClick[i];
+		for (int j = 0; j < QTDUPGRADE; j++) {
+			Upgrade upgrade = upgrades[j];
+			buttonsClick[j] = new JButton(
+					String.format("Upgrade do Click %d (%d processos)", i + 1, upgrade.getCusto()));
+			JButton btnUpgrade = buttonsClick[j];
 			btnUpgrade.setSize(100, 100);
 			btnUpgrade.setVisible(false);
 			add(btnUpgrade);
@@ -119,28 +123,35 @@ public class Frame extends JFrame {
 				int custo = CUSTO * upgrade.getCusto();
 				if (clicker.getAcumulador() >= custo) {
 					btnUpgrade.setEnabled(true);
-					upgrade.upgradeClick();
+					multiplicador++;
+					upgradeClick.setText("Upgrade Click :" + (multiplicador - 1));
 					clicker.setAcumulador(clicker.getAcumulador() - custo);
-					if (this.i == upgrades.length - 1) {
-						buttonsClick[this.i].setEnabled(false);
+					if (this.j == upgrades.length - 1) {
+						buttonsClick[this.j].setEnabled(false);
 					} else {
-						buttonsClick[this.i].setVisible(false);
-						buttonsClick[this.i + 1].setVisible(true);
-						this.i++;
+						buttonsClick[this.j].setVisible(false);
+						buttonsClick[this.j + 1].setVisible(true);
+						this.j++;
 					}
-					if (cont == 9) {
-						clicker.levelUp();
-						labelLevel.setText("Level: " + clicker.getLevel());
-						cont = 0;
-						JOptionPane.showMessageDialog(null, "Level Up");
-					}
-					cont++;
 				} else
 					JOptionPane.showMessageDialog(null, "Você não possui processos suficiente");
-				System.out.println(upgrade.getMulti());
+				System.out.println(multiplicador);
 			});
 		}
 		buttonsClick[0].setVisible(true);
+		
+		multCompras = new JButton("1x");
+		multCompras.setSize(10, 10);
+		add(multCompras);
+		multCompras.addActionListener(
+				new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						
+					}
+				});
 	}
 
 	private class fibonacci {
