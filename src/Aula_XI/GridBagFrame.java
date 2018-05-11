@@ -38,8 +38,8 @@ public class GridBagFrame extends JFrame {
 
 		// weightx and weighty for textArea1 are both 0: the default
 		// anchor for all components is CENTER: the default
-		constraints.fill = GridBagConstraints.BOTH;
-		addComponent(textArea1, 0, 0, 1, 3);
+//		constraints.fill = GridBagConstraints.BOTH;
+//		addComponent(textArea1, 0, 0, 1, 3);
 
 		// weightx and weighty for button1 are both 0: the default
 		constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -50,10 +50,10 @@ public class GridBagFrame extends JFrame {
 		addComponent(comboBox, 2, 1, 2, 1);
 
 		// button2
-		constraints.weightx = 1000; // can grow wider
-		constraints.weighty = 1; // can grow taller
-		constraints.fill = GridBagConstraints.BOTH;
-		addComponent(button2, 1, 1, 1, 1);
+//		constraints.weightx = 1000; // can grow wider
+//		constraints.weighty = 1; // can grow taller
+//		constraints.fill = GridBagConstraints.BOTH;
+//		addComponent(button2, 1, 1, 1, 1);
 
 		// fill is BOTH for button3
 		constraints.weightx = 0;

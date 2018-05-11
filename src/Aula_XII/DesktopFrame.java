@@ -1,6 +1,7 @@
 package Aula_XII;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionListener;
@@ -33,6 +34,7 @@ public class DesktopFrame extends JFrame {
 
 		theDesktop = new JDesktopPane(); // create desktop pane
 		add(theDesktop); // add desktop pane to frame
+		theDesktop.setBackground(Color.BLUE);
 
 		// set up listener for newFrame menu item
 		newFrame.addActionListener(new ActionListener() // anonymous inner class
@@ -41,7 +43,7 @@ public class DesktopFrame extends JFrame {
 					public void actionPerformed(ActionEvent event) {
 						// create internal frame JInternalFrame(String title,boolean resizable,boolean closable,
 	                    //  boolean maximizable,boolean iconifiable)
-						JInternalFrame frame = new JInternalFrame("Internal Frame", true, true, true, true);
+						JInternalFrame frame = new JInternalFrame("Internal Frame", false, true, false, false);
 						MyJPanel panel = new MyJPanel(); // create new panel
 						frame.add(panel, BorderLayout.CENTER); // add panel
 						frame.setSize(200, 100);
