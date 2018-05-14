@@ -30,7 +30,9 @@ public class Frame extends JFrame implements KeyListener {
 	private JButton[] botoesLinha5;
 	private JTextArea textArea;
 	private JLabel informacao;
-
+	private	Color buttonColor;
+	
+	
 	public Frame() {
 		super("Typing Applicatiom");
 
@@ -47,7 +49,6 @@ public class Frame extends JFrame implements KeyListener {
 		mainPanel.add(textPanel);
 		mainPanel.add(keybordPanel);
 
-		keybordPanel.setBackground(Color.BLACK);
 
 		informacao = new JLabel(
 				"<html>Type some text using your keyboard. The keys you press will be highlighted and the text will be displayed. <br>Note: Clicking the buttons with your mouse will not perform any action.<html>");
@@ -56,8 +57,7 @@ public class Frame extends JFrame implements KeyListener {
 		textArea = new JTextArea(20, 60);
 		textArea.setLineWrap(true);
 		textPanel.add(textArea);
-
-		addKeyListener(this);
+		textArea.addKeyListener(this);
 
 		int larguraAltura = 50;
 		int espacamento = larguraAltura + 2;
@@ -147,25 +147,103 @@ public class Frame extends JFrame implements KeyListener {
 		botoesLinha5[3].setBounds((espacamento * 13 + 25), entreLinha * 5, larguraAltura, larguraAltura);
 		keybordPanel.add(botoesLinha5[3]);
 
+		addKeyListener(this);
 	}
-
+			
 	@Override
 	public void keyTyped(KeyEvent e) {
-		int key = e.getKeyCode();
-
-		if (key == KeyEvent.VK_RIGHT) {
-			botoesLinha1[10].setEnabled(true);
-			System.out.println("Oi");
-		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		int key = e.getID();
+		int key = e.getKeyCode();
 
-		if (key == KeyEvent.VK_NUMPAD0) {
-			botoesLinha1[10].setEnabled(false);
-			System.out.println("Oi");
+		// Eventos da primeira linha de botoes
+		if (key == KeyEvent.CHAR_UNDEFINED) {
+			botoesLinha1[0].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_1) {
+			botoesLinha1[1].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_2) {
+			botoesLinha1[2].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_3) {
+			botoesLinha1[3].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_4) {
+			botoesLinha1[4].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_5) {
+			botoesLinha1[5].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_6) {
+			botoesLinha1[6].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_7) {
+			botoesLinha1[7].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_8) {
+			botoesLinha1[8].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_9) {
+			botoesLinha1[9].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_0) {
+			botoesLinha1[10].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_MINUS) {
+			botoesLinha1[11].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_PLUS) {
+			botoesLinha1[12].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_BACK_SPACE ) {
+			botoesLinha1[13].setBackground(buttonColor);
+		}
+		
+		// Eventos da segunda linha de botoes
+		if (key == KeyEvent.VK_TAB) {
+			botoesLinha2[0].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_Q) {
+			botoesLinha2[1].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_W) {
+			botoesLinha2[2].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_E) {
+			botoesLinha2[3].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_R) {
+			botoesLinha2[4].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_T) {
+			botoesLinha2[5].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_Y) {
+			botoesLinha2[6].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_U) {
+			botoesLinha2[7].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_I) {
+			botoesLinha2[8].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_O) {
+			botoesLinha2[9].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_P) {
+			botoesLinha2[10].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_OPEN_BRACKET) {
+			botoesLinha2[11].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_CLOSE_BRACKET) {
+			botoesLinha2[12].setBackground(buttonColor);
+		}
+		if (key == KeyEvent.VK_SLASH) {
+			botoesLinha2[13].setBackground(buttonColor);
 		}
 	}
 
@@ -173,9 +251,136 @@ public class Frame extends JFrame implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 
-		if (key == KeyEvent.VK_NUMPAD0) {
-			botoesLinha1[10].setEnabled(true);
-			System.out.println("Oi");
+		// Eventos da primeira linha de botoes
+		if (key == KeyEvent.CHAR_UNDEFINED) {
+			botoesLinha1[0].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_1) {
+			botoesLinha1[1].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_2) {
+			botoesLinha1[2].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_3) {
+			botoesLinha1[3].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_4) {
+			botoesLinha1[4].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_5) {
+			botoesLinha1[5].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_6) {
+			botoesLinha1[6].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_7) {
+			botoesLinha1[7].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_8) {
+			botoesLinha1[8].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_9) {
+			botoesLinha1[9].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_0) {
+			botoesLinha1[10].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_MINUS) {
+			botoesLinha1[11].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_PLUS) {
+			botoesLinha1[12].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_BACK_SPACE ) {
+			botoesLinha1[13].setBackground(Color.GRAY);
+		}
+
+		// Eventos da segunda linha de botoes
+		if (key == KeyEvent.VK_TAB) {
+			botoesLinha2[0].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_Q) {
+			botoesLinha2[1].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_W) {
+			botoesLinha2[2].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_E) {
+			botoesLinha2[3].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_R) {
+			botoesLinha2[4].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_T) {
+			botoesLinha2[5].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_Y) {
+			botoesLinha2[6].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_U) {
+			botoesLinha2[7].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_I) {
+			botoesLinha2[8].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_O) {
+			botoesLinha2[9].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_P) {
+			botoesLinha2[10].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_OPEN_BRACKET) {
+			botoesLinha2[11].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_CLOSE_BRACKET) {
+			botoesLinha2[12].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_SLASH) {
+			botoesLinha2[13].setBackground(Color.GRAY);
+		}
+		
+		// Eventos da terceira linha de botoes
+		if (key == KeyEvent.VK_TAB) {
+			botoesLinha2[0].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_Q) {
+			botoesLinha2[1].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_W) {
+			botoesLinha2[2].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_E) {
+			botoesLinha2[3].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_R) {
+			botoesLinha2[4].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_T) {
+			botoesLinha2[5].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_Y) {
+			botoesLinha2[6].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_U) {
+			botoesLinha2[7].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_I) {
+			botoesLinha2[8].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_O) {
+			botoesLinha2[9].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_P) {
+			botoesLinha2[10].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_OPEN_BRACKET) {
+			botoesLinha2[11].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_CLOSE_BRACKET) {
+			botoesLinha2[12].setBackground(Color.GRAY);
+		}
+		if (key == KeyEvent.VK_SLASH) {
+			botoesLinha2[13].setBackground(Color.GRAY);
 		}
 	}
 }
