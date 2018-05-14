@@ -1,32 +1,28 @@
 package Exercicio_2;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
-import javax.swing.JInternalFrame.JDesktopIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-public class Frame extends JFrame {
+public class Frame extends JFrame implements KeyListener {
 
 	private String[] teclasLinha1 = { "~", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "+",
-			"<html>Backspace<html>" };
-	private String[] teclasLinha2 = { "Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "/" };
-	private String[] teclasLinha3 = { "Caps", "A", "S", "D", "F", "G", "H", "J", "K", "L", ":", "\"", "Enter" };
-	private String[] teclasLinha4 = { "Shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "?", "/\\" };
-	private String[] teclasLinha5 = { "", "<", "\\/", ">" };
+			"<html>Backspace<html>" }; // 14 botoes
+	private String[] teclasLinha2 = { "Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "/" }; // 14
+																												// botoes
+	private String[] teclasLinha3 = { "Caps", "A", "S", "D", "F", "G", "H", "J", "K", "L", ":", "\"", "Enter" }; // 13
+																													// botoes
+	private String[] teclasLinha4 = { "Shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "?", "/\\" }; // 12 botoes
+	private String[] teclasLinha5 = { "", "<", "\\/", ">" }; // 4 botoes
 	private JButton[] botoesLinha1;
 	private JButton[] botoesLinha2;
 	private JButton[] botoesLinha3;
@@ -58,7 +54,10 @@ public class Frame extends JFrame {
 		textPanel.add(informacao);
 
 		textArea = new JTextArea(20, 60);
+		textArea.setLineWrap(true);
 		textPanel.add(textArea);
+
+		addKeyListener(this);
 
 		int larguraAltura = 50;
 		int espacamento = larguraAltura + 2;
@@ -147,6 +146,36 @@ public class Frame extends JFrame {
 		botoesLinha4[3].setFont(new Font("Serif", Font.PLAIN, 14));
 		botoesLinha5[3].setBounds((espacamento * 13 + 25), entreLinha * 5, larguraAltura, larguraAltura);
 		keybordPanel.add(botoesLinha5[3]);
+
 	}
 
+	@Override
+	public void keyTyped(KeyEvent e) {
+		int key = e.getKeyCode();
+
+		if (key == KeyEvent.VK_RIGHT) {
+			botoesLinha1[10].setEnabled(true);
+			System.out.println("Oi");
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		int key = e.getID();
+
+		if (key == KeyEvent.VK_NUMPAD0) {
+			botoesLinha1[10].setEnabled(false);
+			System.out.println("Oi");
+		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		int key = e.getKeyCode();
+
+		if (key == KeyEvent.VK_NUMPAD0) {
+			botoesLinha1[10].setEnabled(true);
+			System.out.println("Oi");
+		}
+	}
 }
