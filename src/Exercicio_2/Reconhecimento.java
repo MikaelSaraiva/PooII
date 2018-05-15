@@ -263,5 +263,5 @@ public class Reconhecimento {
 		}
 	}
 	
-//	Comparo input a lnha de texto que eu tenho
+//	Comparo input a linha de texto que eu tenho
 }
