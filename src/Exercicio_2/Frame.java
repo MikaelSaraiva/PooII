@@ -30,9 +30,8 @@ public class Frame extends JFrame implements KeyListener {
 	private JButton[] botoesLinha5;
 	private JTextArea textArea;
 	private JLabel informacao;
-	private	Color buttonColor;
-	
-	
+	private Color buttonColor = null;
+
 	public Frame() {
 		super("Typing Applicatiom");
 
@@ -48,7 +47,6 @@ public class Frame extends JFrame implements KeyListener {
 		add(mainPanel);
 		mainPanel.add(textPanel);
 		mainPanel.add(keybordPanel);
-
 
 		informacao = new JLabel(
 				"<html>Type some text using your keyboard. The keys you press will be highlighted and the text will be displayed. <br>Note: Clicking the buttons with your mouse will not perform any action.<html>");
@@ -149,7 +147,7 @@ public class Frame extends JFrame implements KeyListener {
 
 		addKeyListener(this);
 	}
-			
+
 	@Override
 	public void keyTyped(KeyEvent e) {
 	}
@@ -158,92 +156,247 @@ public class Frame extends JFrame implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 
-		// Eventos da primeira linha de botoes
-		if (key == KeyEvent.CHAR_UNDEFINED) {
-			botoesLinha1[0].setBackground(buttonColor);
+		JButton button = null;
+
+		// TODO Eventos da primeira linha de botoes
+		switch (key) {
+		case KeyEvent.VK_DEAD_TILDE:
+			button = botoesLinha1[0];
+			break;
+		case KeyEvent.VK_1:
+			button = botoesLinha1[1];
+			break;
+
+		case KeyEvent.VK_2:
+			button = botoesLinha1[2];
+			break;
+
+		case KeyEvent.VK_3:
+			button = botoesLinha1[3];
+			break;
+
+		case KeyEvent.VK_4:
+			button = botoesLinha1[4];
+			break;
+
+		case KeyEvent.VK_5:
+			button = botoesLinha1[5];
+			break;
+
+		case KeyEvent.VK_6:
+			button = botoesLinha1[6];
+			break;
+
+		case KeyEvent.VK_7:
+			button = botoesLinha1[7];
+			break;
+
+		case KeyEvent.VK_8:
+			button = botoesLinha1[8];
+			break;
+
+		case KeyEvent.VK_9:
+			button = botoesLinha1[9];
+			break;
+
+		case KeyEvent.VK_0:
+			button = botoesLinha1[10];
+			break;
+
+		case KeyEvent.VK_MINUS:
+			button = botoesLinha1[11];
+			break;
+
+		case KeyEvent.VK_EQUALS:
+			if ((e.getModifiers() & KeyEvent.SHIFT_MASK) > 0) {
+				button = botoesLinha1[12];
+			}
+			break;
+
+		case KeyEvent.VK_BACK_SPACE:
+			button = botoesLinha1[13];
+			break;
+
+		// TODO Eventos da segunda linha de botoes
+		case KeyEvent.VK_TAB:
+			button = botoesLinha2[0];
+			break;
+
+		case KeyEvent.VK_Q:
+			button = botoesLinha2[1];
+			break;
+
+		case KeyEvent.VK_W:
+			button = botoesLinha2[2];
+			break;
+
+		case KeyEvent.VK_E:
+			button = botoesLinha2[3];
+			break;
+
+		case KeyEvent.VK_R:
+			button = botoesLinha2[4];
+			break;
+
+		case KeyEvent.VK_T:
+			button = botoesLinha2[5];
+			break;
+
+		case KeyEvent.VK_Y:
+			button = botoesLinha2[6];
+			break;
+
+		case KeyEvent.VK_U:
+			button = botoesLinha2[7];
+			break;
+
+		case KeyEvent.VK_I:
+			button = botoesLinha2[8];
+			break;
+
+		case KeyEvent.VK_O:
+			button = botoesLinha2[9];
+			break;
+
+		case KeyEvent.VK_P:
+			button = botoesLinha2[10];
+			break;
+
+		case KeyEvent.VK_OPEN_BRACKET:
+			button = botoesLinha2[11];
+			break;
+
+		case KeyEvent.VK_CLOSE_BRACKET:
+			button = botoesLinha2[12];
+			break;
+
+		case KeyEvent.VK_SLASH:
+			if ((e.getModifiers() & KeyEvent.SHIFT_MASK) > 0) {
+				button = botoesLinha4[10];
+			} else {
+				button = botoesLinha2[13];
+			}
+			break;
+
+		// TODO Eventos da terceira linha
+		case KeyEvent.VK_CAPS_LOCK:
+			button = botoesLinha3[0];
+			break;
+
+		case KeyEvent.VK_A:
+			button = botoesLinha3[1];
+			break;
+
+		case KeyEvent.VK_S:
+			button = botoesLinha3[2];
+			break;
+
+		case KeyEvent.VK_D:
+			button = botoesLinha3[3];
+			break;
+
+		case KeyEvent.VK_F:
+			button = botoesLinha3[4];
+			break;
+
+		case KeyEvent.VK_G:
+			button = botoesLinha3[5];
+			break;
+
+		case KeyEvent.VK_H:
+			button = botoesLinha3[6];
+			break;
+
+		case KeyEvent.VK_J:
+			button = botoesLinha3[7];
+			break;
+
+		case KeyEvent.VK_K:
+			button = botoesLinha3[8];
+			break;
+
+		case KeyEvent.VK_L:
+			button = botoesLinha3[9];
+			break;
+
+		case KeyEvent.VK_SEMICOLON:
+			button = botoesLinha3[10];
+			break;
+
+		case KeyEvent.VK_QUOTE:
+			if ((e.getModifiers() & KeyEvent.SHIFT_MASK) > 0)
+				button = botoesLinha3[11];
+			break;
+
+		case KeyEvent.VK_ENTER:
+			button = botoesLinha3[12];
+			break;
+
+		// TODO Eventos da quarta linha de botoes
+		case KeyEvent.VK_SHIFT:
+			button = botoesLinha4[0];
+			break;
+
+		case KeyEvent.VK_Z:
+			button = botoesLinha4[1];
+			break;
+
+		case KeyEvent.VK_X:
+			button = botoesLinha4[2];
+			break;
+
+		case KeyEvent.VK_C:
+			button = botoesLinha4[3];
+			break;
+
+		case KeyEvent.VK_V:
+			button = botoesLinha4[4];
+			break;
+
+		case KeyEvent.VK_B:
+			button = botoesLinha4[5];
+			break;
+
+		case KeyEvent.VK_N:
+			button = botoesLinha4[6];
+			break;
+
+		case KeyEvent.VK_M:
+			button = botoesLinha4[7];
+			break;
+
+		case KeyEvent.VK_COMMA:
+			button = botoesLinha4[8];
+			break;
+
+		case KeyEvent.VK_PERIOD:
+			button = botoesLinha4[9];
+			break;
+
+		case KeyEvent.VK_UP:
+			button = botoesLinha4[11];
+			break;
+
+		// TODO Eventos da quinta linha de botoes
+		case KeyEvent.VK_SPACE:
+			button = botoesLinha5[0];
+			break;
+
+		case KeyEvent.VK_LEFT:
+			button = botoesLinha5[1];
+			break;
+
+		case KeyEvent.VK_DOWN:
+			button = botoesLinha5[2];
+			break;
+
+		case KeyEvent.VK_RIGHT:
+			button = botoesLinha5[3];
+			break;
 		}
-		if (key == KeyEvent.VK_1) {
-			botoesLinha1[1].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_2) {
-			botoesLinha1[2].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_3) {
-			botoesLinha1[3].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_4) {
-			botoesLinha1[4].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_5) {
-			botoesLinha1[5].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_6) {
-			botoesLinha1[6].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_7) {
-			botoesLinha1[7].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_8) {
-			botoesLinha1[8].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_9) {
-			botoesLinha1[9].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_0) {
-			botoesLinha1[10].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_MINUS) {
-			botoesLinha1[11].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_PLUS) {
-			botoesLinha1[12].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_BACK_SPACE ) {
-			botoesLinha1[13].setBackground(buttonColor);
-		}
-		
-		// Eventos da segunda linha de botoes
-		if (key == KeyEvent.VK_TAB) {
-			botoesLinha2[0].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_Q) {
-			botoesLinha2[1].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_W) {
-			botoesLinha2[2].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_E) {
-			botoesLinha2[3].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_R) {
-			botoesLinha2[4].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_T) {
-			botoesLinha2[5].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_Y) {
-			botoesLinha2[6].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_U) {
-			botoesLinha2[7].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_I) {
-			botoesLinha2[8].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_O) {
-			botoesLinha2[9].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_P) {
-			botoesLinha2[10].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_OPEN_BRACKET) {
-			botoesLinha2[11].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_CLOSE_BRACKET) {
-			botoesLinha2[12].setBackground(buttonColor);
-		}
-		if (key == KeyEvent.VK_SLASH) {
-			botoesLinha2[13].setBackground(buttonColor);
+
+		if (button != null) {
+			button.setBackground(buttonColor);
 		}
 	}
 
@@ -251,136 +404,250 @@ public class Frame extends JFrame implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 
-		// Eventos da primeira linha de botoes
-		if (key == KeyEvent.CHAR_UNDEFINED) {
-			botoesLinha1[0].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_1) {
-			botoesLinha1[1].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_2) {
-			botoesLinha1[2].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_3) {
-			botoesLinha1[3].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_4) {
-			botoesLinha1[4].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_5) {
-			botoesLinha1[5].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_6) {
-			botoesLinha1[6].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_7) {
-			botoesLinha1[7].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_8) {
-			botoesLinha1[8].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_9) {
-			botoesLinha1[9].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_0) {
-			botoesLinha1[10].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_MINUS) {
-			botoesLinha1[11].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_PLUS) {
-			botoesLinha1[12].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_BACK_SPACE ) {
-			botoesLinha1[13].setBackground(Color.GRAY);
+		JButton button = null;
+
+		switch (key) {
+
+		// TODO Eventos da primeira linha de botoes
+		case KeyEvent.VK_DEAD_TILDE:
+			button = botoesLinha1[0];
+			break;
+
+		case KeyEvent.VK_1:
+			button = botoesLinha1[1];
+			break;
+
+		case KeyEvent.VK_2:
+			button = botoesLinha1[2];
+			break;
+
+		case KeyEvent.VK_3:
+			button = botoesLinha1[3];
+			break;
+
+		case KeyEvent.VK_4:
+			button = botoesLinha1[4];
+			break;
+
+		case KeyEvent.VK_5:
+			button = botoesLinha1[5];
+			break;
+
+		case KeyEvent.VK_6:
+			button = botoesLinha1[6];
+			break;
+
+		case KeyEvent.VK_7:
+			button = botoesLinha1[7];
+			break;
+
+		case KeyEvent.VK_8:
+			button = botoesLinha1[8];
+			break;
+
+		case KeyEvent.VK_9:
+			button = botoesLinha1[9];
+			break;
+
+		case KeyEvent.VK_0:
+			button = botoesLinha1[10];
+			break;
+
+		case KeyEvent.VK_MINUS:
+			button = botoesLinha1[11];
+			break;
+
+		case KeyEvent.VK_EQUALS:
+			if ((e.getModifiers() & KeyEvent.SHIFT_MASK) > 0) {
+				button = botoesLinha1[12];
+			}
+			break;
+
+		case KeyEvent.VK_BACK_SPACE:
+			button = botoesLinha1[13];
+			break;
+
+		// TODO Eventos da segunda linha de botoes
+		case KeyEvent.VK_TAB:
+			button = botoesLinha2[0];
+			break;
+
+		case KeyEvent.VK_Q:
+			button = botoesLinha2[1];
+			break;
+
+		case KeyEvent.VK_W:
+			button = botoesLinha2[2];
+			break;
+
+		case KeyEvent.VK_E:
+			button = botoesLinha2[3];
+			break;
+
+		case KeyEvent.VK_R:
+			button = botoesLinha2[4];
+			break;
+
+		case KeyEvent.VK_T:
+			button = botoesLinha2[5];
+			break;
+
+		case KeyEvent.VK_Y:
+			button = botoesLinha2[6];
+			break;
+
+		case KeyEvent.VK_U:
+			button = botoesLinha2[7];
+			break;
+
+		case KeyEvent.VK_I:
+			button = botoesLinha2[8];
+			break;
+
+		case KeyEvent.VK_O:
+			button = botoesLinha2[9];
+			break;
+
+		case KeyEvent.VK_P:
+			button = botoesLinha2[10];
+			break;
+
+		case KeyEvent.VK_OPEN_BRACKET:
+			button = botoesLinha2[11];
+			break;
+
+		case KeyEvent.VK_CLOSE_BRACKET:
+			button = botoesLinha2[12];
+			break;
+
+		case KeyEvent.VK_SLASH:
+			if ((e.getModifiers() & KeyEvent.SHIFT_MASK) > 0) {
+				button = botoesLinha4[10];
+			} else {
+				button = botoesLinha2[13];
+			}
+			break;
+
+		// TODO Eventos da terceira linha de botoes
+		case KeyEvent.VK_CAPS_LOCK:
+			button = botoesLinha3[0];
+			break;
+
+		case KeyEvent.VK_A:
+			button = botoesLinha3[1];
+			break;
+
+		case KeyEvent.VK_S:
+			button = botoesLinha3[2];
+			break;
+
+		case KeyEvent.VK_D:
+			button = botoesLinha3[3];
+			break;
+
+		case KeyEvent.VK_F:
+			button = botoesLinha3[4];
+			break;
+
+		case KeyEvent.VK_G:
+			button = botoesLinha3[5];
+			break;
+
+		case KeyEvent.VK_H:
+			button = botoesLinha3[6];
+			break;
+
+		case KeyEvent.VK_J:
+			button = botoesLinha3[7];
+			break;
+
+		case KeyEvent.VK_K:
+			button = botoesLinha3[8];
+			break;
+
+		case KeyEvent.VK_L:
+			button = botoesLinha3[9];
+			break;
+
+		case KeyEvent.VK_SEMICOLON:
+			button = botoesLinha3[10];
+			break;
+
+		case KeyEvent.VK_QUOTE:
+			if ((e.getModifiers() & KeyEvent.SHIFT_MASK) > 0)
+				button = botoesLinha3[11];
+			break;
+
+		case KeyEvent.VK_ENTER:
+			button = botoesLinha3[12];
+			break;
+
+		// TODO Eventos da quarta linha de botoes
+		case KeyEvent.VK_SHIFT:
+			button = botoesLinha4[0];
+			break;
+
+		case KeyEvent.VK_Z:
+			button = botoesLinha4[1];
+			break;
+
+		case KeyEvent.VK_X:
+			button = botoesLinha4[2];
+			break;
+
+		case KeyEvent.VK_C:
+			button = botoesLinha4[3];
+			break;
+
+		case KeyEvent.VK_V:
+			button = botoesLinha4[4];
+			break;
+
+		case KeyEvent.VK_B:
+			button = botoesLinha4[5];
+			break;
+
+		case KeyEvent.VK_N:
+			button = botoesLinha4[6];
+			break;
+
+		case KeyEvent.VK_M:
+			button = botoesLinha4[7];
+			break;
+
+		case KeyEvent.VK_COMMA:
+			button = botoesLinha4[8];
+			break;
+
+		case KeyEvent.VK_PERIOD:
+			button = botoesLinha4[9];
+			break;
+
+		case KeyEvent.VK_UP:
+			button = botoesLinha4[11];
+			break;
+
+		// TODO Eventos da quinta linha de botoes
+		case KeyEvent.VK_SPACE:
+			button = botoesLinha5[0];
+			break;
+
+		case KeyEvent.VK_LEFT:
+			button = botoesLinha5[1];
+			break;
+
+		case KeyEvent.VK_DOWN:
+			button = botoesLinha5[2];
+			break;
+
+		case KeyEvent.VK_RIGHT:
+			button = botoesLinha5[3];
+			break;
 		}
 
-		// Eventos da segunda linha de botoes
-		if (key == KeyEvent.VK_TAB) {
-			botoesLinha2[0].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_Q) {
-			botoesLinha2[1].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_W) {
-			botoesLinha2[2].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_E) {
-			botoesLinha2[3].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_R) {
-			botoesLinha2[4].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_T) {
-			botoesLinha2[5].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_Y) {
-			botoesLinha2[6].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_U) {
-			botoesLinha2[7].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_I) {
-			botoesLinha2[8].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_O) {
-			botoesLinha2[9].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_P) {
-			botoesLinha2[10].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_OPEN_BRACKET) {
-			botoesLinha2[11].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_CLOSE_BRACKET) {
-			botoesLinha2[12].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_SLASH) {
-			botoesLinha2[13].setBackground(Color.GRAY);
-		}
-		
-		// Eventos da terceira linha de botoes
-		if (key == KeyEvent.VK_TAB) {
-			botoesLinha2[0].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_Q) {
-			botoesLinha2[1].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_W) {
-			botoesLinha2[2].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_E) {
-			botoesLinha2[3].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_R) {
-			botoesLinha2[4].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_T) {
-			botoesLinha2[5].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_Y) {
-			botoesLinha2[6].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_U) {
-			botoesLinha2[7].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_I) {
-			botoesLinha2[8].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_O) {
-			botoesLinha2[9].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_P) {
-			botoesLinha2[10].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_OPEN_BRACKET) {
-			botoesLinha2[11].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_CLOSE_BRACKET) {
-			botoesLinha2[12].setBackground(Color.GRAY);
-		}
-		if (key == KeyEvent.VK_SLASH) {
-			botoesLinha2[13].setBackground(Color.GRAY);
+		if (button != null) {
+			button.setBackground(Color.GRAY);
 		}
 	}
+
 }
